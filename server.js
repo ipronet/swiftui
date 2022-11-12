@@ -1,24 +1,24 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const expbs = require("express-handlebars");
-const lib = require("./functions");
-const acl = require("./roles");
-const flash = require("connect-flash");
-const path = require("path");
-const session = require("express-session");
-const nodemailer = require("nodemailer");
+const expbs = require('express-handlebars');
+const lib = require('./functions');
+const acl = require('./roles');
+const flash = require('connect-flash');
+const path = require('path');
+const session = require('express-session');
+const nodemailer = require('nodemailer');
 
-const gm = require("gm");
+const gm = require('gm');
 
 var json_location;
-let pdf_location = "";
-let text_location = "";
-let img_location = "";
+let pdf_location = '';
+let text_location = '';
+let img_location = '';
 
-var adminpath = require("./routes/admin");
-var swiftpath = require("./routes/swift");
-var settspath = require("./routes/setts");
-var authspath = require("./routes/auth");
+var adminpath = require('./routes/admin');
+var swiftpath = require('./routes/swift');
+var settspath = require('./routes/setts');
+var authspath = require('./routes/auth');
 /**** execute this for all routes to /   --- we can use regex such as /* for ALL routes
 app.all('/', function (req, res, next) {
   console.log('Accessing the secret section ...')
@@ -28,8 +28,8 @@ app.all('/', function (req, res, next) {
 
 app.use(
   session({
-    key: "user_sid",
-    secret: "somerandonstuffs",
+    key: 'user_sid',
+    secret: 'somerandonstuffs',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -40,16 +40,16 @@ app.use(
 );
 
 app.engine(
-  "hbs",
+  'hbs',
   expbs({
     //layoutsDir: __dirname + '/views/layouts',
     //partialsDir: __dirname + '/views/partials/',
-    extname: "hbs",
+    extname: 'hbs',
     //defaultView: 'main',
-    defaultLayout: "login",
+    defaultLayout: 'login',
 
-    layoutsDir: __dirname + "/views/layouts/",
-    partialsDir: __dirname + "/views/partials/",
+    layoutsDir: __dirname + '/views/layouts/',
+    partialsDir: __dirname + '/views/partials/',
     // Specify helpers which are only registered on this instance.
     helpers: {
       checkVal: function (val1, val2) {
@@ -64,7 +64,7 @@ app.engine(
 
       isSelected: function (val1, val2) {
         if (val1 == val2) {
-          return "selected";
+          return 'selected';
         }
       },
 
@@ -82,19 +82,19 @@ app.engine(
     },
   })
 );
-app.set("views", path.join(__dirname, "views"));
+app.set('views', path.join(__dirname, 'views'));
 
-app.set("view engine", "hbs");
+app.set('view engine', 'hbs');
 
 // app.use(express.static("public"));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 let sessionChecker = (req, res, next) => {
   // console.log(req.session);
   if (req.session.user && !req.session.cookie._expires) {
-    res.redirect("/swift");
+    res.redirect('/swift');
   } else {
     next();
   }
@@ -105,18 +105,18 @@ app.use(flash());
 
 // Global variables
 app.use((req, res, next) => {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  res.locals.error = req.flash("error");
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
   res.locals.user = req.user || null;
   next();
 });
 
 // Routes for Home-Page
 
-app.get("/", sessionChecker, (req, res) => {
+app.get('/', sessionChecker, (req, res) => {
   // res.redirect("/swift");
-  res.redirect("/auth/signin");
+  res.redirect('/auth/signin');
 });
 
 // Routing
@@ -127,10 +127,10 @@ app.get("/", sessionChecker, (req, res) => {
 //   res.render("login", { layout: "login", title: "SWIFTPlus 8.0" });
 // });
 
-app.use("/auth", authspath);
-app.use("/admin", adminpath);
-app.use("/swift", swiftpath);
-app.use("/settings", settspath);
+app.use('/auth', authspath);
+app.use('/admin', adminpath);
+app.use('/swift', swiftpath);
+app.use('/settings', settspath);
 
 // app.get("/signin", (req, res) => {
 //   res.render("login", { layout: "login", mtdata: lib.getMTs() });
@@ -166,16 +166,16 @@ app.use("/settings", settspath);
 //   res.send("<a href='viewmessages'>This is a PoC</a>");
 // });
 
-app.listen(8080, () => {
+app.listen(10000, () => {
   var pathSettings = lib.getPaths();
 
-  console.log("Setting Paths . . . .");
-  console.dir(pathSettings);
+  // console.log('Setting Paths . . . .');
+  // console.dir(pathSettings);
 
   json_location = pathSettings[0].json;
   pdf_location = pathSettings[0].pdf;
   text_location = pathSettings[0].txt;
   img_location = pathSettings[0].img;
 
-  console.log("Server started");
+  console.log('Server started');
 });
