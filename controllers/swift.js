@@ -603,7 +603,9 @@ swiftCtrl.getPdfLink = async (req, res) => {
     //   link.click();
     // });
 
-    let pdf = require(`../${req.body.docname}.pdf`);
+    let pdf = __dirname + `/${req.body.docname}.pdf`;
+
+    console.log('pdfpath' + pdf);
 
     res.json(pdf);
   } catch (error) {
