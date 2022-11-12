@@ -1,0 +1,414 @@
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">NOTIFICATION GATEWAY SETTINGS</div>
+  </div>
+
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+              <li class="tab col s3"><a href="#test1" class="">SMTP GATEWAY</a></li>
+              <li class="tab col s3"><a class="" href="#test2">WEB API</a></li>
+              <li class="tab col s3"><a href="#test3">SMS GATEWAY</a></li>
+              {{#if isSms}}
+              <li class="tab col s3"><a href="#test4">Custom SMS GATEWAY</a></li>
+              {{else}}
+              <li class="tab col s3"><a href="#test4">ADD SMS GATEWAY</a></li>
+              {{/if}}
+
+            </ul>
+          </div>
+
+          {{#if isSms}}
+            <div id="test4" class="col s12">
+            <div class="row"></div>
+
+            <form>
+              {{#each list1}}
+                <div class="row"></div>
+                <div class="row">
+                  <div class="col m3 s3">
+
+                    <div class="row">
+                      <img
+                        src="../../images/sms1.svg"
+                        class="m-b-lg"
+                        alt=""
+                        width="80%"
+                      />
+
+                      {{!-- <div class="switch">
+                        <label>
+                          <input type="checkbox" />
+                          <span class="lever"></span>
+                          Enable AD/LDAP
+                        </label>
+                      </div> --}}
+
+                    </div>
+                  </div>
+                  <div class="col s4">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="gateway">Gateway:</label>
+                        <input
+                         id="gateway"
+                        placeholder="Enter Gateway"
+                          name="ldap_user"
+                          value={{gateway}}
+                          type="text"
+                          class="validate"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="gatewayurl">Gateway Url:</label>
+                        <input
+                          id="gatewayurl"
+                          name="gatewayurl"
+                          type="text"
+                          class="validate"
+                           value={{gatewayurl}}
+                           placeholder="Enter Gateway Url"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="balance">Balance:</label>
+                        <input
+                        value={{balance}}
+                          id="balance"
+                          name="balance"
+                          type="text"
+                          class="validate"
+                          placeholder="Enter Balance"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s5">
+
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="gatewaykeys">Gateway Keys:</label>
+                        <input
+                          id="gatewaykeys"
+                          value={{gatewaykeys}}
+                          name="gatewaykeys"
+                          type="text"
+                          class="validate"
+                          placeholder="Enter Gateway Keys"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="gatewaypassword">Gateway
+                Password:</label>
+                        <input
+                          id="gatewaypassword"
+                          name="gatewaypassword"
+                          value={{gatewaypassword}}
+                          type="text"
+                          class="validate"
+                          placeholder="gateway password"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="row"></div>
+                      <div class="switch">
+                        <label for="status">
+                          <input type="checkbox" {{#if status}}
+                        checked
+                        {{/if}} id="status"/>
+                          <span class="lever"></span>
+                          Status 
+                        </label>
+                      </div>
+                         <input
+                type="hidden"
+                id="id"
+                name="id"
+                value={{id}}
+              />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s5"></div>
+                  <button class="waves-effect waves-light btn" type="button"
+                  id="update_smsgateway">Save Details</button>
+                </div>
+              {{/each}}
+            </form>
+          </div>
+          {{else}}
+          <div id="test4" class="col s12">
+            <div class="row"></div>
+
+            <form>
+
+              <div class="row"></div>
+              <div class="row">
+                <div class="col m3 s3">
+
+                  <div class="row">
+                    <img src="../../images/sms1.svg" class="m-b-lg" alt="" width="80%" />
+
+                    {{! <div class="switch">
+                        <label>
+                          <input type="checkbox" />
+                          <span class="lever"></span>
+                          Enable AD/LDAP
+                        </label>
+                      </div> }}
+
+                  </div>
+                </div>
+                <div class="col s4">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <label for="gateway">Gateway:</label>
+                      <input id="gateway" placeholder="Enter Gateway" name="ldap_user" value="" type="text"
+                        class="validate" />
+                    </div>
+                    <div class="input-field col s12">
+                      <label for="gatewayurl">Gateway Url:</label>
+                      <input id="gatewayurl" name="gatewayurl" type="text" class="validate" value=""
+                        placeholder="Enter Gateway Url" />
+                    </div>
+                    <div class="input-field col s12">
+                      <label for="balance">Balance:</label>
+                      <input value="" id="balance" name="balance" type="text" class="validate"
+                        placeholder="Enter Balance" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col s5">
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <label for="gatewaykeys">Gateway Keys:</label>
+                      <input id="gatewaykeys" value="" name="gatewaykeys" type="text" class="validate"
+                        placeholder="Enter Gateway Keys" />
+                    </div>
+                    <div class="input-field col s12">
+                      <label for="gatewaypassword">Gateway Password:</label>
+                      <input id="gatewaypassword" name="gatewaypassword" value="" type="text" class="validate"
+                        placeholder="gateway password" />
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="row"></div>
+                    <div class="switch">
+                      <label for="status">
+                        <input type="checkbox" id="status" />
+                        <span class="lever"></span>
+                        Status
+                      </label>
+                    </div>
+                    <input type="hidden" id="id" name="id" value="" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s5"></div>
+                <button class="waves-effect waves-light btn" type="button" name="add_smsgateway"
+                  id="add_smsgateway">Save Details</button>
+              </div>
+
+            </form>
+          </div>
+          {{/if}}
+
+
+
+          <div id="test3" class="col s12">
+            <div class="row"></div>
+            <form>
+              <div class="row">
+                <div class="col m3 s3 center-align">
+                  <div class="row"></div>
+                  <div class="row"></div>
+                  <img src="./images/sms-gateway.png" class="m-b-lg" alt="" width="75%" />
+                  <p class="grey-text center-align">-</p>
+                </div>
+                <div class="col s6">
+                  <h5><b>IPRONET SMS Service</b></h5>
+                  <div class="row m-t-lg">
+                    <div class="col m12">
+                      <p class="no-p">Features:</p>
+                      <ul>
+                        <li><b>SMS Alert:</b>
+                          Leverage on the in-built sms service to send alert text
+                          messages to customers and internal recipients on SWIFT
+                          transactions directed to a registered customer.
+                        </li>
+
+                      </ul>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="col s3">
+                  <div class="row"></div>
+                  
+                  <div class="row">
+                <div class="input-field col m12">
+                  <select style="width: 100%;" id="" class="required validate">
+                    <option value="el">Enable SMS Alerts</option>
+                    <option value="rl">Disable SMS Alerts</option>
+                  </select>
+                  <br />
+                  <p><b>Cost/Message:</b> GHC 0.05 </p>
+                </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col s5"></div>
+                <a class="waves-effect waves-light btn">Save Settings</a>
+              </div>
+
+            </form>
+          </div>
+
+
+          <div id="test1" class="col s12">
+            <div class="row"></div>
+
+            <form>
+              {{#each list}}
+                <div class="row">
+                  <div class="col m3 s3">
+
+                    <div class="row">
+                      <img src="./images/email.png" class="m-b-lg" alt="" width="100%" />
+
+                    </div>
+                  </div>
+
+                  <div class="col m4 s5">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="smtpHost">SMTP Host:</label>
+                        <input id="smtpHost" value={{smtpHost}} name="smtpHost" type="text" class="validate"
+                          placeholder="Smtp Host" />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="smtpPort">SMTP Port:</label>
+                        <input id="smtpPort" name="smtpPort" type="text" value={{smtpPort}} class="validate"
+                          placeholder="Smtp Port" />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="smtpFrom">From Address:</label>
+                        <input id="smtpFrom" name="smtpFrom" type="text" class="validate" value={{smtpFrom}}
+                          placeholder="From Address" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col m4 s5">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="smtpUser">SMTP Username:</label>
+                        <input id="smtpUser" value={{smtpUser}} name="smtpUser" type="text" class="validate"
+                          placeholder="Smtp Username" />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="smtpPass">SMTP Password</label>
+                        <input id="smtpPass" value={{smtpPass}} name="smtpPass" type="text" class="validate"
+                          placeholder="Smtp Password" />
+                      </div>
+
+                      <input type="hidden" id="idsettings_sms" name="idsettings_sms" value={{idsettings_sms}} />
+                      <input type="hidden" id="smtpTLS" name="smtpTLS" value={{smtpTLS}} />
+
+                      <div class="switch">
+                        <div class="row"></div>
+                        <div class="row"></div>
+                        <label>
+                          <input type="checkbox" {{#if enabled}} checked {{/if}} name="enabled2" id="enabled2" />
+                          <span class="lever"></span>
+                          Enable SMTP
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s5"></div>
+                  <button class="waves-effect waves-light btn" type="button" id="update_smtp">Save Settings</button>
+                </div>
+              {{/each}}
+            </form>
+          </div>
+
+          <div id="test2" class="col s12">
+            <div class="row"></div>
+            <div class="row">
+              <div class="col m3 s3">
+
+                <div class="row">
+                  <div class="row"></div>
+                  <div class="row"></div>
+                  <img src="./images/webapi.png" class="m-b-lg" alt="" width="80%" />
+
+                </div>
+              </div>
+              <div class="col s4">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label for="firstName">URL:</label>
+                    <input id="firstName" name="firstName" type="text" class="validate" />
+                  </div>
+                  <div class="input-field col s12">
+                    <label for="lastName">Parameter 1:</label>
+                    <input id="lastName" name="lastName" type="text" class="validate" />
+                  </div>
+                  <div class="input-field col s12">
+                    <label for="email">Parameter 2:</label>
+                    <input id="email" name="email" type="text" class="validate" />
+                  </div>
+                </div>
+              </div>
+              <div class="col s5">
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label for="password">Parameter 3:</label>
+                    <input id="password" name="password" type="text" class="validate" />
+                  </div>
+                  <div class="input-field col s12">
+                    <label for="confirm">Parameter 4:</label>
+                    <input id="confirm" name="confirm" type="text" class="validate" />
+                  </div>
+
+                  <div class="row"></div>
+                  <div class="switch">
+                    <label>
+                      <input type="checkbox" />
+                      <span class="lever"></span>
+                      Enable Service
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s5"></div>
+              <a class="waves-effect waves-light btn">Save Settings</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

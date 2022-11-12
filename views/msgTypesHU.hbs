@@ -1,0 +1,308 @@
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">Select MT Table Message Type</div>
+  </div>
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+              <li class="tab col s3"><a href="#test1" class="">Message Type</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <form id="example-form" action="#">
+            <div>
+              {{! <h3>Message Type</h3> }}
+              <section>
+                <div class="wizard-content">
+
+                  <div class="col s4"></div>
+
+                  <div class="col s4">
+                    {{! <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div> }}
+                    <div class="card">
+                      <div class="card-content">
+                        <label>Select A Message Type</label>
+                        {{!-- <select
+                          class="browser-default"
+                          type="text"
+                          class="required validate"
+                          required="true"
+                          id="msgTypeH"
+                        > --}}
+                        <select class="js-states browser-default" tabindex="-1"  required="true"
+                          id="msgTypeHU">
+                          <option value="" disabled selected>Choose your option</option>
+                          {{#each list}}
+                          {{#if hasHeader}}
+                            <option value={{message_type}}>
+                              {{message_type}}</option>
+                          {{/if}}
+                          {{/each}}
+                          {{! <option value="940">MT 940</option>
+                          <option value="950">MT 950</option> }}
+                        </select>
+                      </div></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    {{! <div class="row"></div> }}
+                    <div class="row">
+                      <div class="col s3"></div>
+                      {{!-- <button
+                        class="waves-effect waves-light btn"
+                        type="button"
+                        id="msg_selectedH"
+                        style="margin-left: 20px;"
+                      >Create Header</button> --}}
+
+                      <button
+                        class="waves-effect waves-light btn"
+                        type="button"
+                        id="msg_selectedH_upd"
+                        {{!-- style="margin-left: 20px;" --}}
+                      >Update Header</button>
+                    </div>
+                  </div>
+
+                </div>
+
+              </section>
+
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+{{! <div id="modal1" class="modal col s9 m9 l9 cenetr-align">
+  <div class="modal-content">
+    <h4>ADD/EDIT FIELD DISPLAY</h4>
+    <div class="card-content">
+      <span class="card-title"></span>
+      <div class="row">
+        <div class="col m3 s3 l3">
+          <div id="mtform" class="col s12 m12 l12">
+
+          </div>
+        </div>
+        <div class="col m6 s6 l6">
+          Sample goes in here
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <a
+      href="#!"
+      class="modal-action modal-close waves-effect waves-green btn-flat"
+    >Agree</a>
+  </div>
+</div>
+
+<a
+  id="modaltrigger"
+  class="waves-effect waves-light btn modal-trigger hide"
+  href="#modal1"
+>Modal</a> }}
+
+{{! <script>
+
+var formfields;
+var formexists = 0;
+
+function fetchtemplate(templatex)
+{
+    //alert(templatex)
+
+        $.ajax({
+            type: "POST",
+            url: "fetchtemplate",
+            data: {messagetype: templatex},
+            success: rednerTable,
+            //error: alert('error')
+            //dataType: dataType
+        });
+}
+
+function rednerTable(jsondata)
+{
+
+    if( (Object.keys(jsondata).length) === 0  || (Object.keys(jsondata).length) === 1 )
+    { 
+        alert('Message type does not exists') 
+        $('#fieldtable').dataTable().fnClearTable();
+        //$('#fieldtable').getDatatable.draw()
+        //$('#fieldtable').removeAttr('width').DataTable( {
+        //    destroy: true,
+        //})
+       return;
+    }
+
+    var fielddata = JSON.parse(jsondata).DATA
+    var fieldcols = JSON.parse(jsondata).fieldcols
+    formfields = JSON.parse(jsondata).fieldcols
+    /**
+    var fieldcols =  [
+                { title: "MTField", data: "Field"},
+                { title: "Sample Value", data: "value" }
+            ]
+**/
+    fieldcols.push({
+        title: "Actions",
+        data: "Field",
+        "render": function(data, type, row, meta)
+        {
+          //return '<input class="filled-in" id="filled-in-box-example-'+data+'" name="F'+data+'" type="checkbox" /><label></label>'
+          // <input type="button" id="F'+data+'" name="F'+data+'" value="F'+row+'" onclick="">
+           // console.dir(meta.row + "  -  " + data)
+          return '<a href="#">Edit Field</a> / <a href="#">Delete Field</a>'  
+        },
+        "targets": -1
+    })
+
+
+    $('#fieldtable').removeAttr('width').DataTable( {
+            data: fielddata,
+            destroy: true,
+            dom: '<"top"Bif>rt<"bottom"p><"clear">',
+            columns: fieldcols,
+            pageLength: 4,
+            lengthChange: false,
+            //scrollY:        "50vh",
+            //scrollCollapse: true,
+            paging:         true,
+            bInfo: false,
+            //columnDefs: [
+            //    { width: "5%", targets: 0 },
+            //    { width: "90%", targets: 1 },
+            //    { width: "5%", targets: 2 },
+            //],
+            fixedColumns: true,
+            buttons: [
+            {
+                text: 'My button',
+                action: function ( e, dt, node, config ) {
+                    //alert( 'Button activated' );
+                    buildform();
+                }
+            }
+        ]
+        } );
+
+    // $('#fieldtable').ajax.reload();
+}
+
+function addToTable(tableitem,tablevalue)
+{
+    //alert(tableitem)
+    //alert(tablevalue)
+}
+
+function buildform()
+{
+   /**
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+   */
+    if(formexists){$form.remove(); formexists = 0}
+
+    $form = $("<form></form>");
+
+    $.each( formfields, function( key, value ) {
+        //console.log( key + ": " + value );
+        //console.dir(key)
+        //console.dir(value.title)
+        if( value.type == "select")
+        {
+            //form options
+            var fieldOptions = ''
+
+            $.each(value.option, function(val, text) {
+                  
+                fieldOptions = '<option value="'+val+'" >'+text+'</option>' + fieldOptions
+                   
+            });  
+
+            $form.append(`<div class="input-field col">
+                                        
+                                        <select name="`+value.title+`" id="`+value.title+`" class="browser-default">
+                                            <option value="" disabled="" selected="">Select An Option</option>
+                                            `+fieldOptions+`
+                                        </select>
+                            </div>
+                            `)                         
+        }
+        else
+        {
+            $form.append(`
+                            <div class="row p-v-xs">
+                                <div class="input-field">
+                                    <input placeholder="Placeholder" name="`+value.title+`" id="`+value.title+`" type="`+value.type+`" class="validate">
+                                    <label for="`+value.title+`" class="active">`+value.title+`</label>
+                                </div>
+                            </div>
+                        `)
+        }
+ 
+                                        
+        //$form.append('<div class="row"><label>'+value.title+'</label><input type="'+value.type+'" value=""></div>');
+    });
+
+
+    //$form.append('<input type="button" value="button">');
+    $('#mtform').append($form);
+    
+    $("#modaltrigger").click()
+    $("#modaltrigger").get(0).click()
+
+    formexists = 1
+
+   //var modal_trigger = $("<p></p>").text("Text."); 
+
+   //var modal_trigger = $("<a />", {
+   //     id : "modaltrigger",
+   //     name : "link",
+   //     href : "#modal1",
+        //click: function(){ alert('me') },
+   //     text : "some text"
+   // });
+    
+    //$('body').append(modal_trigger);
+
+    //modal_trigger.click()
+    //modal_trigger.get(0).click()
+
+    //$("#modaltrigger").click()
+    //$("#modaltrigger").get(0).click()
+
+    //$("#james").click()
+    //$("#james").get(0).click()
+
+    //modal_trigger.get[0].trigger('click')
+
+    //console.dir(modal_trigger)
+    //alert(modal_trigger.get(0).href)
+    
+    //$('#your_link_id').get(0).click();
+
+     //$("#modal1").modal('show')
+    //$("#myModal").modal('show');
+    //$("#modaltrigger").trigger("click");
+    //$("#modaltrigger").click();
+   //$("body").append(txt1, txt2, txt3);      // Append the new elements 
+}
+
+</script> }}

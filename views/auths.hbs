@@ -1,0 +1,325 @@
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">Authentication Settings</div>
+  </div>
+
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+              <li class="tab col s3"><a
+                  id="home-tab"
+                  href="#test3"
+                >Defaults</a></li>
+              <li class="tab col s3"><a
+                  id="profile-tab"
+                  href="#test1"
+                  class=""
+                >OAuth</a></li>
+              <li class="tab col s3"><a
+                  id="contact-tab"
+                  class=""
+                  href="#test2"
+                >AD/LDAP</a></li>
+            </ul>
+          </div>
+
+          <div id="test3" class="col s12">
+
+            <div class="row">
+              <div class="row"></div>
+              <div class="col m3 s12 center-align">
+                <div class="row"></div>
+                <img
+                  src="./images/datsec.png"
+                  class="m-b-lg"
+                  alt=""
+                  width="75%"
+                />
+                <p class="grey-text center-align">-</p>
+              </div>
+              <div class="col m9 s12">
+                <h5><b>System Authentication Defaults</b></h5>
+                <div class="row m-t-lg">
+                  <div class="col m6">
+                    <p class="no-p">Features:</p>
+                    <ul>
+                      <li><b>MFA:</b>
+                        Enable system to require multi factor authentication
+                        during login. Second leg authentication will be done via
+                        email.</li>
+                      <li> <br /> </li>
+                      <li> </li>
+                      <li><b>Local Login:</b> Allow local users to be setup</li>
+
+                    </ul>
+                  </div>
+                  <div class="col m6">
+                    <div class="input-field col m12 s12">
+                      <select id="licenseSelect" class="required validate">
+                        <option value="rl">Enable Multi Factor Authentication
+                        </option>
+                        <option value="el">Disable Multi Factor Authentication
+                        </option>
+                      </select>
+                    </div>
+                    <div class="input-field col m12 s12">
+                      <select id="licenseSelect" class="required validate">
+                        <option value="rl">Enable Local Authentication</option>
+                        <option value="el">Disable Local Authentication</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s5"></div>
+              <a class="waves-effect waves-light btn">Save Settings</a>
+            </div>
+          </div>
+
+          <div id="test1" class="col s12">
+            <div class="row"></div>
+
+            <form>
+              {{#each list}}
+                <div class="row">
+                  <div class="col m3 s3">
+
+                    <div class="row">
+                      <img
+                        src="./images/oauths.png"
+                        class="m-b-lg"
+                        alt=""
+                        width="80%"
+                      />
+
+                      <div class="switch">
+                        <label for="enabled">
+                          <input type="checkbox" {{#if enabled}}
+                        checked
+                        {{/if}} id="enabled" />
+                          <span class="lever"></span>
+                          Enable OAuth
+                        </label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col m4 s5">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="oauth_url">Authorization URI:</label>
+                        <input
+                          id="oauth_url"
+                          name="oauth_url"
+                          value={{oauth_url}}
+                          type="text"
+                          class="validate"
+                          placeholder="Authorization URI"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="TokenUri">Token URI:</label>
+                        <input
+                          id="TokenUri"
+                          name="TokenUri"
+                          type="text"
+                          class="validate"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="UserUri">User Info URI:</label>
+                        <input
+                          id="UserUri"
+                          name="UserUri"
+                          type="text"
+                          class="validate"
+                          placeholder="User Info URL"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col m4 s5">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="oauth_api_key">API Key:</label>
+                        <input
+                          id="oauth_api_key"
+                          name="oauth_api_key"
+                          type="text"
+                          value={{oauth_api_key}}
+                          class="validate"
+                          placeholder="API Key"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="oauth_api_secret">API Password</label>
+                        <input
+                        value={{oauth_api_secret}}
+                          id="oauth_api_secret"
+                          name="oauth_api_secret"
+                          type="text"
+                          class="validate"
+                          placeholder="API
+                        Password"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="oauth_redirect_url">Callback URI:</label>
+                        <input
+                        value={{oauth_redirect_url}}
+                          id="oauth_redirect_url"
+                          name="oauth_redirect_url"
+                          type="text"
+                          class="validate"
+                          placeholder="Callback URI"
+                        />
+                      </div>
+                      <input
+                      type="hidden"
+                      id="idsettings_auth_oauth"
+                      name="idsettings_auth_oauth"
+                      value={{idsettings_auth_oauth}}
+                    />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s5"></div>
+                  <button class="waves-effect waves-light btn" type="button"
+                  id="update_oauth">Save Settings</button>
+                </div>
+              {{/each}}
+            </form>
+          </div>
+
+          <div id="test2" class="col s12">
+            <form>
+              {{#each list1}}
+                <div class="row"></div>
+                <div class="row">
+                  <div class="col m3 s3">
+
+                    <div class="row">
+                      <img
+                        src="./images/ADLdap2.png"
+                        class="m-b-lg"
+                        alt=""
+                        width="80%"
+                      />
+
+                      {{!-- <div class="switch">
+                        <label>
+                          <input type="checkbox" />
+                          <span class="lever"></span>
+                          Enable AD/LDAP
+                        </label>
+                      </div> --}}
+
+                    </div>
+                  </div>
+                  <div class="col s4">
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="ldap_user">LDAP USER:</label>
+                        <input
+                         id="ldap_user"
+                        placeholder="Ldap User"
+                          name="ldap_user"
+                          value={{ldap_user}}
+                          type="text"
+                          class="validate"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="ldap_password">LDAP
+                        PASSWORD:</label>
+                        <input
+                          id="ldap_password"
+                          name="ldap_password"
+                          type="text"
+                          class="validate"
+                           value={{ldap_password}}
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="ldap_url">BASE DN:</label>
+                        <input
+                        value={{ldap_url}}
+                          id="ldap_url"
+                          name="ldap_url"
+                          type="text"
+                          class="validate"
+                          placeholder="Ldap Url"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col s5">
+
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="ldap_domain">DOMAIN:</label>
+                        <input
+                          id="ldap_domain"
+                          value={{ldap_domain}}
+                          name="ldap_domain"
+                          type="text"
+                          class="validate"
+                          placeholder="Ldap Domain"
+                        />
+                      </div>
+                      <div class="input-field col s12">
+                        <label for="AdSec">AD SEC GROUP:</label>
+                        <input
+                          id="AdSec"
+                          name="AdSec"
+                          type="text"
+                          class="validate"
+                          placeholder="AD SEC GROUP"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="row"></div>
+                      <div class="switch">
+                        <label for="enabled1">
+                          <input type="checkbox" {{#if enabled}}
+                        checked
+                        {{/if}} id="enabled1"/>
+                          <span class="lever"></span>
+                          Use LDAP 
+                        </label>
+                      </div>
+                        <input
+                    type="hidden"
+                    id="idsettings_auth_LDAP"
+                    name="idsettings_auth_LDAP"
+                    value={{idsettings_auth_LDAP}}
+                  />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s5"></div>
+                  <button class="waves-effect waves-light btn" type="button"
+                  id="update_ldap">Save Settings</button>
+                </div>
+              {{/each}}
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

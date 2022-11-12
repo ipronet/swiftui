@@ -1,0 +1,143 @@
+<div class="col s12">
+    <div class="page-title">COMPANY DETAILS</div>
+</div>
+
+
+<div class="col s12 m12 l12">
+    <div class="card">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12">
+                    <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+                        <li class="tab col s3"><a href="#test1" class="">Provide Company Details</a></li>
+                    </ul>
+                </div>
+
+                
+                <div id="test1" class="col s12">
+                    <div class="row"></div>
+
+                    <form>
+                        {{#each list}}
+                        <div class="row">
+
+
+                            <div class="col m3 s3">
+                                <center>
+                                    <div class="row">
+                                        <div class="row"></div>
+                                        <div class="row"></div>
+                                        <img src="./images/company.png" class="m-b-lg" alt="" width="80%">
+
+
+                                        <div>
+                                            <label>
+                                                COMPANY INFO
+                                            </label>
+
+                                        </div>
+
+                                    </div>
+                                </center>
+                            </div>
+
+                            <div class="col s12 m12 l4">
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="comp_name" value={{comp_name}} type="text" class="validate">
+                                        <label for="comp_name">Name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="comp_email" value={{comp_email}} type="email" class="validate">
+                                        <label for="comp_email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="address" value={{address}} type="text" class="validate">
+                                        <label for="address">Address</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col s12 m12 l4">
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="comp_url" value={{comp_url}} type="text" class="validate">
+                                        <label for="comp_url">Website</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="comp_slogan" value={{comp_slogan}} type="text" class="validate">
+                                        <label for="comp_slogan">Slogan</label>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="idsettings_company" name="idsettings_company"
+                                    value={{idsettings_company}} />
+                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="file-field input-field">
+                                        <div class="btn grey lighten-1">
+                                            <span>Logo</span>
+                                            <input id="comp_logo" type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col s5"></div> <button type="button" id="update_company"
+                                class="waves-effect waves-light btn">Save
+                                Settings</button>
+                        </div>
+                        {{/each}}
+                    </form>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+<!-- Javascripts 
+    <script src="./plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="./plugins/materialize/js/materialize.min.js"></script>
+    <script src="./plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="./plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="./plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="./plugins/counter-up-master/jquery.counterup.min.js"></script>
+    <script src="./plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="./plugins/chart.js/chart.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="./plugins/curvedlines/curvedLines.js"></script>
+    <script src="./plugins/peity/jquery.peity.min.js"></script>
+    <script src="./js/alpha.min.js"></script>
+    <script src="./js/pages/dashboard.js"></script>
+
+-->

@@ -1,0 +1,67 @@
+.daterangepicker .ranges li.active {
+  background-color: #26a69a;
+  color: #fff;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  background-color: #26a69a;
+  border-color: transparent;
+  color: #fff;
+}
+
+.daterangepicker .calendar-table th,
+.daterangepicker .calendar-table td {
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 32px;
+  width: 32px;
+  height: 24px;
+  line-height: 0px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.daterangepicker .drp-buttons .btn {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0 2rem;
+}
+
+.daterangepicker {
+  direction: ltr;
+  background-color: beige;
+  text-align: left;
+}
+
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect,
+.daterangepicker select.secondselect,
+.daterangepicker select.ampmselect {
+  width: 30%;
+  margin: 0 auto;
+  background: #eee;
+  border: 1px solid #eee;
+  padding: 0px;
+  outline: 0;
+  font-size: 12px;
+  display: -webkit-inline-box;
+  background-color: white;
+  text-align: center;
+}
+
+.dt-buttons button {
+  padding: 0 1rem;
+}
+
+.daterangepicker select.hourselect option,
+.daterangepicker select.minuteselect option,
+.daterangepicker select.secondselect option,
+.daterangepicker select.ampmselect option {
+  text-align: center;
+}

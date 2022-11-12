@@ -1,0 +1,172 @@
+<html lang="en">
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../plugins/materialize/css/materialize.min.css"
+    />
+    <link
+      href="http://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../login/css/style.css" />
+
+<style>
+      /*  styling scrollbars  */
+      ::-webkit-scrollbar {
+        width: 0.8em;
+        height: 0.8em;
+        margin: 5em 5em;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+
+        margin: 10em 20em;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #d9dadb;
+        border-radius: 10px;
+        border: 0.2em solid white;
+        padding: 0 2px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8c8d8f;
+        border-radius: 10px;
+        border: 0.2em solid white;
+        padding: 0 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="ftco-section">
+      <div class="container">
+
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10">
+            <div class="wrap d-md-flex">
+              <div
+                class="img"
+                style="background-image: url(../../login/images/ipronet.PNG);background-size: auto"
+              >
+              </div>
+              <div class="login-wrap p-4 p-md-5">
+                <div class="d-flex">
+                  <div class="w-100 justify-content-center">
+                    <h3 class="mb-4">Solve the Question</h3>
+                  </div>
+
+                </div>
+                <form class="signin-form">
+                  <div class="form-group mb-3">
+                    <label class="label" for="name">Addition</label>
+                    <div
+                      style="display: flex; width:100%; align-items:center; justify-content:center; "
+                    >
+                      <div style="margin-right: 1rem;">
+                        <p
+                          style="align-self:center; font-weight:bold; font-size:50px"
+                        >{{values.value1}}</p>
+                      </div>
+
+                      <div style="margin-right: 1rem;">
+                        <p
+                          style="align-self:center; font-weight:bold; font-size:30px; "
+                        >+</p>
+                      </div>
+
+                      <div style="margin-right: 1rem;">
+                        <p
+                          style="align-self:center; font-weight:bold; font-size:50px;"
+                        >{{values.value2}}</p>
+                      </div>
+
+                    </div>
+                    <input
+                      type="hidden"
+                      id="value1"
+                      value={{values.value1}}
+                      name="value1"
+                      required
+                    />
+                    <input
+                      type="hidden"
+                      id="value2"
+                      value={{values.value2}}
+                      name="value2"
+                      required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="label" for="answer">Solution</label>
+                    <input
+                      type="answer"
+                      class="form-control"
+                      id="answer"
+                      name="answer"
+                      placeholder="Your answer"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <button
+                      type="button"
+                      class="cyan darekne-1 form-control btn btn-primary rounded submit px-3"
+                      name="mfa"
+                      id="mfa"
+                    >Submit</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../../login/js/jquery.min.js"></script>
+    <script src="../../login/js/popper.js"></script>
+    <script src="../../login/js/bootstrap.min.js"></script>
+    <script src="../../login/js/main.js"></script>
+    <script src="../../js/swift/users.js"></script>
+    <script src="../../js/swift/login.js"></script>
+    <script src="../../js/swift/logout.js"></script>
+    {{! <script src="../../js/swift/company.js"></script> }}
+    <script src="../../js/swift/auth.js"></script>
+    <script src="../../js/swift/role.js"></script>
+    <script src="../../js/swift/menu.js"></script>
+    <script src="../../js/swift/rolemenu.js"></script>
+    <script src="../../js/swift/usermenu.js"></script>
+    <script src="../../js/swift/rolemenus.js"></script>
+    <script src="../../js/swift/usermenus.js"></script>
+    {{! <script src="../../js/swift/notification.js"></script>
+    <script src="../../js/swift/paths.js"></script>
+    <script src="../../js/swift/alerts.js"></script>
+    <script src="../../js/swift/sms.js"></script>
+    <script src="../../js/swift/msg.js"></script>
+    <script src="../../js/swift/msgmodal.js"></script> }}
+
+  </body>
+</html>

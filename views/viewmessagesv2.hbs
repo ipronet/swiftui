@@ -1,0 +1,208 @@
+<div class="col s12">
+  <div class="page-title">{{title}}</div>
+</div>
+<div class="col s12 m12 l12">
+  <div class="card">
+    <div class="card-content">
+      <div class="col s12">
+        <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+          <li class="tab col s3"><a href="#test1" class="">{{searchdata}}
+              00000000</a></li>
+        </ul>
+      </div>
+      <div class="row"></div>
+      <table
+        id="example"
+        class="display block"
+        style="width:100%;font-size:12px"
+      >
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>MessageType</th>
+            <th><center>NetDevStat</center></th>
+            <th>Reference</th>
+            <th>Odering Customer</th>
+            <th>Beneficiary Customer</th>
+            <th>Value Date</th>
+            <th>Amount</th>
+            <th>Currency</th>
+            <th><center>More</center></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--
+                                            Include Network Delivery Status, message type, ordering customer and beneficiary name in the enquiry home page.
+                                            Exclude beneficiary account number, Bank Operation code from the enquiry.
+                                            Message should be arranged according to date and time. Not according to reference number
+                                            How to determine if a processed transfer did not generate a message on the portal.
+                                            Distinguish foreign currency from local currency
+                                            To be able to export the enquiry to excel
+                                            Refer to the attached which was initially shared for the list of messages to be included.
+
+                                            { txtdoc: '/swiftalerts/processed/00170690.prt',
+                                            pdfdoc: '/swiftalerts/pdf/00170690.prt.pdf',
+                                            NetStatus: 'Network Ack',
+                                            mtype: '103',
+                                            Sender: 'ACCCGHACXXX',
+                                            Reciever: 'FBLIGHACXXX',
+                                            senderRef: 'FT21144792X7',
+                                            BankCode: 'CRED',
+                                            Valdate: '24-May-2021',
+                                            Currency: 'GHS',
+                                            Amount: '2,394.00',
+                                            OderingCustomer: '1400004782013',
+                                            OderingCustomerName: 'SEATRAK ENGINEERING LIMITED',
+                                            BenAccount: '2100215795910',
+                                            BenName: 'MANUEL ESHUN' }
+
+
+                                    -->
+          {{#each notices}}
+            <tr id="{{@key}}tr">
+              <td id="cdate">{{this.cdate}}</td>
+              <td id="ctime">{{this.ctime}}</td>
+              <td width="12%" id="mtype"><center>{{this.mtype}}</center></td>
+              <td width="12%" id="NetStatus">{{this.NetStatus}}</td>
+              <td id="senderRef">{{this.senderRef}}</td>
+              <td
+                class="font-12"
+                id="OderingCustomerName"
+              >{{this.OderingCustomerName}}</td>
+              <td id="BenAccount">{{this.BenName}}</td>
+              <td id="Valdate">{{this.Valdate}}</td>
+              <td id="Amount">{{this.Amount}}</td>
+              <td width="8%" id="Currency"><center
+                >{{this.Currency}}</center></td>
+              <td width="8%" class="center-align">
+                <center>
+                  <a
+                    id="jj"
+                    href="#"
+                    onclick="showmessage('showdialog{{@key}}','{{this.txtdoc}}','{{@key}}')"
+                  >
+                    <i
+                      class="material-icons"
+                      style="color:rgb(11, 44, 121);"
+                    >visibility</i></a>
+                  <a
+                    id="showdialog{{@key}}"
+                    class="modal-trigger center-align"
+                    href="#{{@key}}"
+                  ></a>
+                </center>
+              </td>
+            </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Trigger   visibility   -->
+
+<!-- Modal Structure -->
+{{#each notices}}
+  <div id="{{@key}}" class="modal modal-fixed-footer" style="width: 80%;">
+    <div class="modal-content" style="width: 80%;"></div>
+
+    <div class="row">
+
+      <div class="col l5 m5 s5">
+
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="col s12">
+          <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+            <li class="tab col s3"><a href="#test1" class="">REF:
+                {{this.senderRef}}</a></li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <div class="col l12 m12 s12">
+
+            <ul class="collection with-header">
+              <li class="collection-item">Beneficiary Name:
+                <label class="green-text">{{this.BenName}}</label></li>
+              <li class="collection-item">Odering Customer:
+                <label
+                  class="green-text"
+                >{{this.OderingCustomerName}}</label></li>
+              <li class="collection-item">Amount:
+                <label class="green-text">{{this.Amount}}</label></li>
+              <li class="collection-item">Currency:
+                <label class="green-text">{{this.Currency}}</label></li>
+              <li class="collection-item">Value-Date:
+                <label class="green-text">{{this.Valdate}}</label></li>
+              <li class="collection-item">Message Type:
+                <label class="green-text">{{this.mtype}}</label></li>
+              <li class="collection-item">Network Delivery Status:
+                <label class="green-text">{{this.NetStatus}}</label></li>
+            </ul>
+          </div>
+        </div>
+        <!--
+            <div class="row">Sender:</div>
+            <div class="row">Beneficiary:</div>
+            <div class="row">Amount:</div>
+            <div class="row">Value Date:</div>
+            <div class="row">Bank Operation Code:</div>
+            <div class="row">Network Delivery Status:</div>
+
+            -->
+      </div>
+      <div class="col l7 m7 s7">
+
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="col s12">
+          <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+            <li class="tab col s3"><a href="#" class="">SWIFT MESSAGE</a></li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <!--
+                <div class="col l12 m12 s12" style="height: 300px; overflow: auto;">
+                    <p class="green-text text-darken-2 p-v-sm" id="swiftmessage" style="white-space: pre-wrap;"></p>
+                </div>
+            -->
+          <div class="col l12 m12 s12">
+            <ul class="collection with-header">
+              <li
+                class="collection-item"
+                id="swiftmessage{{@key}}"
+                style="white-space: pre-wrap; height: 300px; overflow: auto; font-size: 12px;"
+              ></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <div class="col s5"></div>
+      <a
+        class="modal-action modal-close waves-effect waves-green btn-flat"
+        id="frmclose{{@key}}"
+      >Close</a>
+      <div class="col s5"></div>
+      <a
+        class="modal-action waves-effect waves-green btn-flat disabled"
+        onclick="getpdf('{{this.pdfdoc}}','{{@key}}');"
+      >E-Mail PDF</a>
+      <div class="col s5"></div>
+      <a
+        class="modal-action waves-effect waves-green btn-flat"
+        onclick="getpdf('{{this.pdfdoc}}','{{@key}}');"
+      >Download PDF</a>
+
+      <!--<div class="col s5"></div> <input type="submit" class="btn-flat" onclick="" value="Update Record"> -->
+    </div>
+  </div>
+{{/each}}

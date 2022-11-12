@@ -1,0 +1,127 @@
+{{! <main class="mn-inner"> }}
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">SETTINGS / ROLE-MENUS</div>
+  </div>
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="col s12">
+          <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+            <li class="tab col s3"><a href="#test1" class="">Role-Menu List</a></li>
+          </ul>
+        </div>
+        <form>
+
+          <div class="row">
+
+            <div class="col s12 m12 l4">
+
+              <div class="row"></div>
+              <div class="row">
+                <div class="input-field col m12">
+
+                  <select id="role_id" class="required validate">
+                    <option value="" disabled selected>Choose a role</option>
+                    {{#each list1}}
+                      <option value={{id}}>{{title}}
+                      </option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col s12 m12 l4">
+
+              <div class="row"></div>
+              <div class="row">
+                <div class="input-field col m12">
+
+                  <select id="menu_id" class="required validate">
+                    <option value="" disabled selected>Choose a menu</option>
+                    {{#each list2}}
+                      <option value={{id}}>{{title}}
+                      </option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col m3 s12 center-align">
+              <div class="row"></div>
+              <div class="row"></div>
+              <button
+                class="waves-effect waves-light btn"
+                type="button"
+                id="create_role_menu"
+              >Create Role Menu</button>
+              {{! <img
+                src="../../images/folder.jpg"
+                class="m-b-lg"
+                alt=""
+                width="90%"
+              />
+              <p class="grey-text center-align">-</p> }}
+
+            </div>
+
+          </div>
+
+          {{!-- <div class="row">
+            {{! <div class="col s5"></div> }}
+            <button
+              class="waves-effect waves-light btn"
+              type="button"
+              name="add_path"
+              id="add_path"
+            >Save Settings</button>
+          </div> --}}
+
+        </form>
+        {{! <div class="row"></div> }}
+        <div style="width:100%;font-size:12px; overflow-x:scroll;">
+        <table id="example" class="display responsive-table datatable-example">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Id</th>
+              <th>Role Title</th>
+
+            </tr>
+          </thead>
+          {{! <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </tfoot> }}
+          <tbody>
+            {{#each list}}
+              <tr>
+                <td><a href="/settings/rolemenu/{{id}}">
+                    <i
+                      style="color: #26A69A;"
+                      class="material-icons"
+                    >visibility</i>
+                  </a></td>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{! </main> }}

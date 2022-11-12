@@ -1,0 +1,58 @@
+{{! <main class="mn-inner"> }}
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">Path / Directories</div>
+  </div>
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="col s12">
+          <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+            <li class="tab col s3"><a href="#test1" class="">Path / Directories</a></li>
+          </ul>
+        </div>
+        <div class="row"></div>
+         <div style="width:100%;font-size:12px; overflow-x:scroll;">
+        <table id="example" class="display responsive-table datatable-example">
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Print Path</th>
+              <th>Pdf Path</th>
+              <th>Image Path</th>
+              <th>Text Path</th>
+            </tr>
+          </thead>
+          {{! <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </tfoot> }}
+          <tbody>
+            {{!-- {{#each list}} --}}
+            <tr>
+              <td><a href="/settings/path/{{list.idsettings_paths}}">
+                  <i
+                    style="color: #26A69A;"
+                    class="material-icons"
+                  >visibility</i>
+                </a></td>
+              <td>{{list.src_swift_docs_path_print}}</td>
+              <td>{{list.src_swift_docs_path_pdf}}</td>
+              <td>{{list.src_swift_docs_path_img}}</td>
+              <td>{{list.src_swift_docs_path_txt}}</td>
+            </tr>
+            {{!-- {{/each}} --}}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{! </main> }}

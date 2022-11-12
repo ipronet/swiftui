@@ -1,0 +1,50 @@
+/* .toggler{
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+
+.toggler.active{
+    background-color: gray;
+}
+
+.toggler::after {
+  content: "\25B6";
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease-in-out;
+} */
+
+
+.stoggler{
+  padding: 0.5rem;
+  list-style-type: none;
+  cursor: pointer;
+}
+
+
+.stoggler.active{
+  
+  background-color: gray;
+}
+
+.stoggler::after {
+content: "\25B6";
+display: inline-block;
+margin-left: 0.5rem;
+transition: transform 0.3s ease-in-out;
+}
+
+.stoggler.active::after {
+    
+  transform: rotate(90deg);
+}
+
+.togglerTarget {
+  display: block;
+  padding-left: 1rem;
+}
+
+.togglerTarget.active {
+  display: block;
+}

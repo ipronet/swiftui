@@ -1,0 +1,27 @@
+            <aside id="slide-out" class="side-nav white fixed">
+                <div class="side-nav-wrapper">
+
+                    {{> sidebarProfile}}
+                    
+                    <div class="sidebar-account-settings">
+                        <ul>
+                            <li class="no-padding">
+                                <a class="waves-effect waves-grey" href="/auth/newpass"><i class="material-icons">password</i>Change Password</a>
+                            </li>
+
+                            
+                            
+                            <li class="no-padding">
+                                <a id="logout" onClick="logout()" class="waves-effect waves-grey"><i class="material-icons">exit_to_app</i>Sign Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                
+                    {{> menubar}}
+
+                <div class="footer">
+                    <p class="copyright">IPRONET ©</p>
+                    <a href="#!">Privacy</a> &amp; <a href="#!">Terms</a>
+                </div>
+                </div>
+            </aside>

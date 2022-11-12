@@ -1,0 +1,32 @@
+{{! <div style="" id="custom--menu">
+
+</div> }}
+<ul
+  class="sidebar-menu collapsible collapsible-accordion"
+  data-collapsible="accordion"
+>
+  {{#each userDetail.menus}}
+    {{#if children}}
+      <li class="no-padding">
+        <a class="collapsible-header waves-effect waves-grey"><i
+            class="material-icons"
+          >{{icon}}</i>{{title}}<i
+            class="nav-drop-icon material-icons"
+          >keyboard_arrow_right</i></a>
+        <div class="collapsible-body">
+          <ul>
+            {{#each children}}
+              <li><a href={{url}}>{{title}}</a></li>
+            {{/each}}
+          </ul>
+        </div>
+      </li>
+    {{else}}
+      <li class="no-padding active"><a
+          class="waves-effect waves-grey active"
+          href={{url}}
+        ><i class="material-icons">{{icon}}</i>{{title}}</a></li>
+
+    {{/if}}
+  {{/each}}
+</ul>

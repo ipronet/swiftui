@@ -1,0 +1,92 @@
+
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">Update Message Headers</div>
+  </div>
+
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+              <li class="tab col s3"><a href="#test1" class="">Update Custom
+                  Message Titles</a></li>
+            </ul>
+          </div>
+
+          <div id="test1" class="col s12">
+            <div class="row"></div>
+
+            <form method="post" id="form_data1">
+
+             
+              <div class="row">
+                <div class="col s6">
+                  <h5 style="margin-bottom: 10px; text-align:center; text-decoration:underline">Set custom Title</h5>
+                  <div id="header_form" style="height: 380px; overflow-y:scroll">
+                    {{#each msgKey}}
+                      <div style="margin-top: -50px;" class="row" id={{index}}>
+                        <div class=" col s5">
+                          <input name="array[]" value={{title}} type="text" class="validate" placeholder="Title" required />
+
+                        </div>
+                        <div class=" col s5">
+                          <input name="array[]" value={{data}} type="text" class="validate" placeholder="Data"
+                            required />
+
+                        </div>
+
+                        <div class="col s1 ">
+                          <br />
+                          <a href="#" onclick="remove_field(this)" id={{index}} class="waves-effect   red "
+                            style="display: flex; align-items: center; justify-content:center; border-radius: 50%;">
+                            <i class="material-icons " style="color: white;">remove</i>
+                          </a>
+                        </div>
+                      </div>
+                    {{/each}}
+                  </div>
+
+
+                  <div style="display: flex; align-items:center; justify-content:center; margin-left: -100px; margin-top: 5px" class="row controls">
+                    <a href="#" onclick="add_more_field()" class="waves-effect waves-light   m-b-xs"
+                      style="display: flex; align-items: center; justify-content:center; border-radius: 50%; background: #F4B104; color: white; padding:5px">
+                      <i class="material-icons " style="color: white; font-size: 20px">add</i>
+                    </a>
+
+                  </div>
+
+                  <div style="display: flex; align-items:center; justify-content:center; margin-left: -100px; " class="row controls">
+                    <button style="margin-top: -10px" class="waves-effect waves-light btn" type="button" name="button" id="update_header">Save
+              Details</button>
+                  </div>
+                </div>
+
+                <div class="col s5 ml-10" style="margin-left: 50px;">
+                  <h5 style="text-align: center; text-decoration:underline">{{mtype}} DATA</h5>
+                  <div style="height: 380px;  overflow-y: scroll; ">
+                      <textarea id="textarea1" class="materialize-textarea  " length="200" style=" font-size:14px; font-weight: normal;"
+                    >{{jsondata}}</textarea>
+                  </div>
+                  
+                </div>
+                <input type="hidden" id="messagetype" name="messagetype" value={{mtype}} />
+              </div>
+          </div>
+          {{!-- <div class="row" >
+            <div class="col s5"></div>
+            <button style="margin-top: -50px;" class="waves-effect waves-light btn" type="button" name="button" id="add_header">Save
+              Details</button>
+          </div> --}}
+
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>

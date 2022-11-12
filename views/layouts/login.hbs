@@ -1,0 +1,175 @@
+<html lang="en">
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../../plugins/materialize/css/materialize.min.css"
+    />
+    <link
+      href="http://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../login/css/style.css" />
+
+    <style>
+      /*  styling scrollbars  */
+      ::-webkit-scrollbar {
+        width: 0.8em;
+        height: 0.8em;
+        margin: 5em 5em;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+
+        margin: 10em 20em;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #d9dadb;
+        border-radius: 10px;
+        border: 0.2em solid white;
+        padding: 0 2px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8c8d8f;
+        border-radius: 10px;
+        border: 0.2em solid white;
+        padding: 0 2px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <section class="ftco-section">
+      <div class="container">
+        <!--			
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login #04</h2>
+				</div>
+			</div>
+		-->
+        <div class="row justify-content-center">
+          <div class="col-md-12 col-lg-10">
+            <div class="wrap d-md-flex">
+              <div
+                class="img"
+                style="background-image: url(../../login/images/ipronet.PNG);background-size: auto"
+              >
+              </div>
+              <div class="login-wrap p-4 p-md-5">
+                <div class="d-flex">
+                  <div class="w-100 justify-content-center">
+                    <h3 class="mb-4">Identify Yourself</h3>
+                  </div>
+                  <!--
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+									</p>
+								</div>
+							-->
+                </div>
+                <form action="/login" method="post" class="signin-form">
+                  <div class="form-group mb-3">
+                    <label class="label" for="name">Username</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      name="username"
+                      placeholder="Username"
+                      required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="label" for="password">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      name="password"
+                      placeholder="Password"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <button
+                      type="button"
+                      class="cyan darekne-1 form-control btn btn-primary rounded submit px-3"
+                      name="login_user"
+                      id="login_user"
+                    >Sign In</button>
+                  </div>
+                  <div class="form-group d-md-flex">
+                    <div class="w-50 text-left">
+                      <label class="checkbox-wrap checkbox-primary mb-0">Local
+                        SignIn
+                        <input type="checkbox" checked />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <!--
+									<div class="w-50 text-md-right">
+										<a href="#">Forgot Password</a>
+									</div>
+								-->
+                  </div>
+                </form>
+
+                <!--
+					  <p class="text-center">Not a member? <a data-toggle="tab" href="#signup">Sign Up</a></p>
+				  -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../../login/js/jquery.min.js"></script>
+    <script src="../../login/js/popper.js"></script>
+    <script src="../../login/js/bootstrap.min.js"></script>
+    <script src="../../login/js/main.js"></script>
+    <script src="../../js/swift/users.js"></script>
+    <script src="../../js/swift/login.js"></script>
+    <script src="../../js/swift/logout.js"></script>
+    {{! <script src="../../js/swift/company.js"></script> }}
+    <script src="../../js/swift/auth.js"></script>
+    <script src="../../js/swift/role.js"></script>
+    <script src="../../js/swift/menu.js"></script>
+    <script src="../../js/swift/rolemenu.js"></script>
+    <script src="../../js/swift/usermenu.js"></script>
+    <script src="../../js/swift/rolemenus.js"></script>
+    <script src="../../js/swift/usermenus.js"></script>
+    {{! <script src="../../js/swift/notification.js"></script>
+    <script src="../../js/swift/paths.js"></script>
+    <script src="../../js/swift/alerts.js"></script>
+    <script src="../../js/swift/sms.js"></script>
+    <script src="../../js/swift/msg.js"></script>
+    <script src="../../js/swift/msgmodal.js"></script> }}
+
+  </body>
+</html>

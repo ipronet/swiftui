@@ -1,0 +1,200 @@
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">ALERT PROFILE</div>
+  </div>
+
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+              <li class="tab col s3"><a href="#test1" class="">Profile Details</a></li>
+            </ul>
+          </div>
+
+          <div id="test1" class="col s12">
+            <div class="row"></div>
+
+            <form>
+
+              <div class="row">
+
+                <div class="row"></div>
+
+                <div class="col m3 s3">
+                  <center>
+                    <div class="row">
+                      <div class="row"></div>
+                      <div class="row"></div>
+                      <img
+                        src="../../images/alertprofile.png"
+                        class="m-b-lg"
+                        alt=""
+                        width="80%"
+                      />
+
+                      <div class="switch">
+                        <label for="enabled1">
+                          <input type="checkbox" id="enabled1" />
+                          <span class="lever"></span>
+                          Enable Alert
+                        </label>
+                      </div>
+
+                    </div>
+                  </center>
+                </div>
+
+                <div class="col s12 m12 l3">
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input
+                        value=""
+                        type="text"
+                        class="validate"
+                        id="CustomerName"
+                        placeholder="Customer Name"
+                      />
+                      <label for="CustomerName">Customer Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input
+                        value=""
+                        id="email"
+                        type="email"
+                        class="validate"
+                        placeholder="Customer Email"
+                      />
+                      <label for="email">Customer Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input
+                        value=""
+                        type="number"
+                        class="validate"
+                        id="sms"
+                        placeholder="SMS Number"
+                      />
+                      <label for="sms">SMS Number</label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col s12 m12 l3">
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input
+                        value=""
+                        id="internal_alert_email"
+                        type="email"
+                        class="validate"
+                        placeholder="Alert Email"
+                      />
+                      <label for="internal_alert_email">Alert Email</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input
+                        value=""
+                        id="account_number"
+                        type="email"
+                        class="validate"
+                        placeholder="Account Number"
+                      />
+                      <label for="account_number">Account Number</label>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <select id="idMsgType">
+                        <option value="" disabled selected>Select Message Type</option>
+                        <option value="101">MT101</option>
+
+                        <option value="104">MT104</option>
+                        <option value="105">MT105</option>
+                      </select>
+                      {{!-- <label for="idMsgType">Select Message Type</label> --}}
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col s12 m12 l3">
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <select id="idFlow">
+                        <option value="" disabled selected>Select Message Direction</option>
+                        <option value="inwards">Inwards</option>
+                        <option value="outwards">Outwards</option>
+                        <option value="both">Both</option>
+                      </select>
+                      {{!-- <label for="idFlow">Select Message Direction</label> --}}
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <select id="message_template">
+                        <option value="" selected disabled>Select Message Template</option>
+                        <option value="accra">Accra branch</option>
+                        <option value="kumasi">Kumasi Branch</option>
+                      </select>
+                      {{!-- <label for="Alertgroup">Select Message Template</label> --}}
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <select id="idalert_type">
+                        <option value="" disabled selected>Select Alert Type</option>
+                        <option value="sms">SMS</option>
+                        <option value="email">Email</option>
+                        <option value="both">Both</option>
+                      </select>
+                      {{!-- <label for="idalert_type">Select Alert Type</label> --}}
+                    </div>
+                    <input
+                      type="hidden"
+                      id="idprofile"
+                      name="idprofile"
+                      value=""
+                    />
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col s5"></div>
+                <button
+                  class="waves-effect waves-light btn"
+                  type="button"
+                  id="add_alert"
+                >Save Details</button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

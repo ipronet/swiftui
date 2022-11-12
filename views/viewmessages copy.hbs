@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Title -->
+    <title>{{> title}}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Responsive Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="./plugins/materialize/css/materialize.min.css" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./plugins/metrojs/MetroJs.min.css" rel="stylesheet">
+    <link href="./plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet">
+    <link href="./plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="./plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css"/>    
+    <link href="./plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css"/>  
+
+
+    <!-- Theme Styles -->
+    <link href="./css/alpha.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/custom.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+  // make sure to use triple brackets
+  //var quiz = {{{tableData}}};
+   //var quiz_jj = {{{data}}};
+
+
+</script>
+
+    {{> loader}}
+
+
+    <div class="mn-content fixed-sidebar">
+        {{> header}}
+        {{> sidebar}}
+
+        <main class="mn-inner">        
+            <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">{{title}}</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="col s12">
+                                    <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+                                        <li class="tab col s3"><a href="#test1" class="">{{searchdata}}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="row"></div>
+                                <table id="example" class="display responsive-table datatable-example">
+                                    <thead>
+                                        <tr>
+                                            
+                                        <th>Sender's Reference</th>
+                                        <th>Bank Operation Code</th>
+                                        <th>Beneficiary Account</th>
+                                        <th>Value Date</th>
+                                        <th>Currency</th>
+                                        <th>Amount</th>
+                                        <th><center>More</center></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!--
+                                        SenderRef: 'FT123456000',
+                                        BankCode: 'CRED',
+                                        BenAccount: '12345678901234',
+                                        BenName: 'Melcom Group Of Company',
+                                        Valdate: '25 July 2020',
+                                        Currency: 'GHS',
+                                        Amount: '1,50',
+                                        Sender: 'ABCD1234XXX -1',
+                                        NetStatus: 'ACK',
+                                        pdfdoc: 'E-12345XXXXXX_00006',
+                                        txtdoc: '00006.txt'
+                                    -->
+                                        {{#each notices}}
+                                        <tr id="{{@key}}tr">
+                                            <td id="SenderRef">{{this.SenderRef}}</td>
+                                            <td id="BankCode">{{this.BankCode}}</td>
+                                            <td id="BenAccount">{{this.BenAccount}}</td>
+                                            <td id="Valdate">{{this.Valdate}}</td>
+                                            <td id="Currency">{{this.Currency}}</td>
+                                            <td id="Amount">{{this.Amount}}</td>
+                                            <td width="10%" class="center-align">
+                                                <center>
+                                                    <a id="jj" href="#" onclick="showmessage('showdialog{{@key}}','{{this.txtdoc}}','{{@key}}')">
+                                                        <i class="material-icons" style="color:rgb(11, 44, 121);">visibility</i></a>
+                                                    <a id="showdialog{{@key}}" class="modal-trigger center-align" href="#{{@key}}"></a>
+                                                </center>
+                                            </td>  </tr>
+                                        {{/each}}                                         
+                                        
+</tbody>
+</table>
+</div>
+</div>
+                    </div>
+
+
+<!-- Modal Trigger   visibility   -->
+
+
+<!-- Modal Structure -->
+{{#each notices}}
+<div id="{{@key}}" class="modal modal-fixed-footer" style="width: 80%;">
+    <div class="modal-content" style="width: 80%;"></div>
+    
+    <div class="row">
+
+        <div class="col l4 m4 s4">
+
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="col s12">
+                <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+                    <li class="tab col s3"><a href="#test1" class="">{{this.SenderRef}}</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col l12 m12 s12" >
+
+            <ul class="collection with-header">
+                <li class="collection-item" >Sender: <label class="green-text">{{this.SenderRef}}</label></li>
+                <li class="collection-item" >Beneficiary Name: <label class="green-text">{{this.BenName}}</label></li>
+                <li class="collection-item" >Beneficiary Account: <label class="green-text">{{this.BenAccount}}</label></li>
+                <li class="collection-item" >Amount: <label class="green-text">{{this.Amount}}</label></li>
+                <li class="collection-item" >Value-Date: <label class="green-text">{{this.Valdate}}</label></li>
+                <li class="collection-item" >Bank-Ops-Code: <label class="green-text">{{this.BankCode}}</label></li>
+                <li class="collection-item" >Network Delivery Status: <label class="green-text">{{this.NetStatus}}</label></li>
+            </ul>
+            </div>
+            </div>
+            <!--
+            <div class="row">Sender:</div>
+            <div class="row">Beneficiary:</div>
+            <div class="row">Amount:</div>
+            <div class="row">Value Date:</div>
+            <div class="row">Bank Operation Code:</div>
+            <div class="row">Network Delivery Status:</div>
+
+            -->
+        </div>
+        <div class="col l8 m8 s8">
+
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="col s12">
+                <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+                    <li class="tab col s3"><a href="#" class="">SWIFT MESSAGE</a></li>
+                </ul>
+            </div>
+
+            <div class="row"> 
+                <!--
+                <div class="col l12 m12 s12" style="height: 300px; overflow: auto;">
+                    <p class="green-text text-darken-2 p-v-sm" id="swiftmessage" style="white-space: pre-wrap;"></p>
+                </div>
+            -->
+            <div class="col l12 m12 s12" >
+                <ul class="collection with-header">
+                    <li class="collection-item" id="swiftmessage{{@key}}" style="white-space: pre-wrap; height: 290px; overflow: auto; font-size: 12px;"></li>
+                </ul>
+                </div>
+            </div>
+
+        </div>
+
+        
+    </div>
+    <div class="modal-footer">
+        <div class="col s5"></div> <a class="modal-action waves-effect waves-green btn-flat" onclick="getpdf('{{this.pdfdoc}}','{{@key}}');">Download PDF</a>
+        <div class="col s5"></div> <a class="modal-action modal-close waves-effect waves-green btn-flat" id="frmclose{{@key}}">Close</a>
+        <!--<div class="col s5"></div> <input type="submit" class="btn-flat" onclick="" value="Update Record"> -->
+    </div>
+    </div>
+{{/each}}
+
+            </div>
+
+        </main>
+
+        {{> footer}}
+    </div>
+
+
+
+
+    <!-- Javascripts -->
+
+    <script src="./plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="./js/pages/miscellaneous-sweetalert.js"></script>
+
+    <script src="./plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="./plugins/materialize/js/materialize.min.js"></script>
+    <script src="./plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="./plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="./plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="./js/alpha.min.js"></script>
+
+
+    <script src="./js/pages/table-data.js"></script>
+
+
+    
+    
+</body>
+
+</html>
+<script type="text/javascript">
+
+function showmessage(myform,txtdata,formkey)
+{
+   //alert(txtdata);
+
+   $.get( "getmessage?id=1&code=x&txtdata="+txtdata, function( data ) {
+    $( "#swiftmessage"+formkey ).text( $.trim(data) );
+    //alert( "Load was performed." );
+    //alert(data);
+    });
+
+    $('#'+myform+'').click();
+    $('#'+myform+'').trigger("click");
+}
+
+function getpdf(myform,frmkey)
+{
+    $.get( "getpdf?id="+myform, function( data ) {
+
+        //var blob=new Blob([data]);
+        //alert(data.code);
+        
+        var link=document.createElement('a');
+        link.href='/getpdf?code='+data.code;
+        link.click();
+
+        
+        $('#frmclose'+frmkey).click();
+        $('#frmclose'+frmkey).trigger("click");
+
+        swal("Download", "Message Downloeded", "success");
+
+    });
+}
+
+function updateRecord(myform)
+{
+    var y = document.forms.namedItem(myform);
+    var myForm = $('form#'+myform);
+
+    $.post('/updateprofile', myForm.serialize(), function(resp) {
+
+                if(resp.processed)
+                {
+                    var x = document.forms.namedItem(myform);
+                    x.elements.account_name.value = resp.account_name;
+                    document.getElementById(myform+"tr").cells[x.elements.account_name.id].innerHTML=resp.account_name;
+                    x.elements.account_email.value = resp.account_email;
+                    document.getElementById(myform+"tr").cells[x.elements.account_email.id].innerHTML=resp.account_email;
+                    x.elements.account_tel.value = resp.account_tel;
+                    document.getElementById(myform+"tr").cells[x.elements.account_tel.id].innerHTML=resp.account_tel;
+                    x.elements.account_number.value = resp.account_number;
+                    document.getElementById(myform+"tr").cells[x.elements.account_number.id].innerHTML=resp.account_number;
+                    //x.elements.account_mtdata.value = resp.account_mtdata;
+                    //document.getElementById("{{@key}}tr").cells[x.elements.account_mtdata.id].innerHTML=  x.elements.account_mtdata.value.innerHTML;  
+                    
+                    //Materialize.toast('Record Updated Successfully!', 5000);
+                    //swal("Updated", "Record Updated Successfully!", "success");
+
+                }
+                else{
+                    //Materialize.toast('Error!!! Record no updated.', 5000);
+                    //swal("Error", "Error Updating Record", "error");
+
+                }
+
+            });
+            $('#'+myform+'close').click();
+            $('#'+myform+'close').trigger("click");
+
+    //$('#dialog'+myform).removeClass('open');
+    //$('#dialog'+myform).css('display', 'none');
+    //$('#dialog'+myform).css('opacity', '0');
+    //$('#dialog'+myform).css('transform', 'scaleX(0.7)');
+    //$("body").removeAttr("style");
+    //$('.lean-overlay').remove();
+}
+
+
+/*
+{{#each tabledata}}
+
+
+
+ 
+$(function() {
+        $('#{{@key}}').submit(function(event) {
+            event.preventDefault(); // Stops browser from navigating away from page
+            //alert('updating....');
+            //var data;
+            // build a json object or do something with the form, store in data
+            $.post('/updateprofile', $(this).serialize(), function(resp) {
+                //alert(resp.account_name);
+                //alert($('#{{@key}}').account_name.value);
+                // do something when it was successful
+                
+                var x = document.forms.namedItem("{{@key}}");
+
+                //x.elements.foreach((element) => {
+                  //                     } )
+               x.elements.account_name.value = resp.account_name;
+               document.getElementById("{{@key}}tr").cells[x.elements.account_name.id].innerHTML=resp.account_name;
+               x.elements.account_email.value = resp.account_email;
+               document.getElementById("{{@key}}tr").cells[x.elements.account_email.id].innerHTML=resp.account_email;
+               x.elements.account_tel.value = resp.account_tel;
+               document.getElementById("{{@key}}tr").cells[x.elements.account_tel.id].innerHTML=resp.account_tel;
+               x.elements.account_number.value = resp.account_number;
+               document.getElementById("{{@key}}tr").cells[x.elements.account_number.id].innerHTML=resp.account_number;
+               x.elements.account_mtdata.value = resp.account_mtdata;
+               document.getElementById("{{@key}}tr").cells[x.elements.account_mtdata.id].innerHTML=  x.elements.account_mtdata.value.innerHTML;
+               
+               
+
+
+            });
+        });
+    });
+
+    {{/each}}
+
+    */
+</script>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Title -->
+    <title>{{> title}}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Responsive Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="./plugins/materialize/css/materialize.min.css" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./plugins/metrojs/MetroJs.min.css" rel="stylesheet">
+    <link href="./plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet">
+
+
+    <!-- Theme Styles -->
+    <link href="./css/alpha.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/custom.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+    {{> loader}}
+
+
+    <div class="mn-content fixed-sidebar">
+        {{> header}}
+        {{> sidebar}}
+
+        <main class="mn-inner">
+
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="page-title">NEW ALERT PROFILE</div>
+                </div>
+
+
+                <div class="col s12 m12 l12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12">
+                                    <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+                                        <li class="tab col s3"><a href="#test1" class="">Profile Details</a></li>
+                                    </ul>
+                                </div>
+
+                                <div id="test1" class="col s12">
+                                    <div class="row"></div>
+
+                                    <form>
+
+                                        <div class="row">
+
+                                            <div class="row"></div>
+
+                                            <div class="col m3 s3">
+                                                <center>
+                                                    <div class="row">
+                                                        <div class="row"></div>
+                                                        <div class="row"></div>
+                                                        <img src="./images/alertprofile.png" class="m-b-lg" alt=""
+                                                            width="80%">
+
+
+                                                        <div>
+                                                            <label>
+                                                                PROFILE
+                                                            </label>
+
+                                                        </div>
+
+                                                    </div>
+                                                </center>
+                                            </div>
+
+                                            <div class="col s12 m12 l3">
+
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <input id="first_name" type="text" class="validate">
+                                                        <label for="first_name">Account Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <input id="email" type="email" class="validate">
+                                                        <label for="email">Account Email</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <input id="email" type="email" class="validate">
+                                                        <label for="email">Account Telephone</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col s12 m12 l3">
+
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <input id="first_name" type="text" class="validate">
+                                                        <label for="first_name">Account Number</label>
+                                                    </div>
+                                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select>
+                                            <option value="" disabled selected>Select Message Type</option>
+                                            {{#each mtdata}}
+                                                <option value="{{this.val}}">{{this.name}}</option>
+                                            {{/each}}
+                                        </select>
+                                        <label>Select Message Type</label>
+                                    </div>
+
+                                </div>
+                                                
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select>
+                                            <option value="" disabled selected>Select Message Direction</option>
+                                            <option value="1">Inwards</option>
+                                            <option value="2">Outwards</option>
+                                            <option value="3">Inwards/Outwards</option>
+                                        </select>
+                                        <label>Select Message Direction</label>
+                                    </div>
+
+                                </div>
+
+                                            </div>
+                                        
+                                            <div class="col s12 m12 l3">
+
+                                               
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select>
+                                            <option value="" disabled selected>Select Message Template</option>
+                                            <option value="1">Template-1</option>
+                                            <option value="2">Template-2</option>
+                                        </select>
+                                        <label>Select Message Template</label>
+                                    </div>
+
+                                </div>
+                                                
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select>
+                                            <option value="" disabled selected>Select Internal Alert Group</option>
+                                            <option value="1">Tarkwa Branch</option>
+                                            <option value="2">Credit</option>
+                                            <option value="3">Int. Operations</option>
+                                        </select>
+                                        <label>Select Internal Alert Group</label>
+                                    </div>
+
+                                </div>
+
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select>
+                                            <option value="" disabled selected>Select Alert Type</option>
+                                            <option value="1">Email</option>
+                                            <option value="2">SMS</option>
+                                            <option value="3">Email/SMS</option>
+                                        </select>
+                                        <label>Select Alert Type</label>
+                                    </div>
+
+                                </div>
+
+                                            </div>
+                                        
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col s5"></div> <a class="waves-effect waves-light btn">Add
+                                                Profile</a>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    </main>
+
+    {{> footer}}
+    </div>
+
+
+
+
+    <!-- Javascripts -->
+    <script src="./plugins/jquery/jquery-2.2.0.min.js"></script>
+    <script src="./plugins/materialize/js/materialize.min.js"></script>
+    <script src="./plugins/material-preloader/js/materialPreloader.min.js"></script>
+    <script src="./plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="./plugins/waypoints/jquery.waypoints.min.js"></script>
+    <script src="./plugins/counter-up-master/jquery.counterup.min.js"></script>
+    <script src="./plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="./plugins/chart.js/chart.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.time.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.symbol.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.resize.min.js"></script>
+    <script src="./plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="./plugins/curvedlines/curvedLines.js"></script>
+    <script src="./plugins/peity/jquery.peity.min.js"></script>
+    <script src="./js/alpha.min.js"></script>
+    <script src="./js/pages/dashboard.js"></script>
+
+</body>
+
+</html>

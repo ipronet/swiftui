@@ -1,0 +1,140 @@
+<div class="row">
+  <div class="col s12">
+    <div class="page-title">SMS GATEWAY</div>
+  </div>
+
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="card-content">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs tab-demo z-depth-1" style="width: 100%;">
+              <li class="tab col s3"><a href="#test1" class="">SMS Gateway
+                  Detail</a></li>
+            </ul>
+          </div>
+
+          <div id="test1" class="col s12">
+            <div class="row"></div>
+
+            <form>
+
+              <div class="row"></div>
+              <div class="row">
+                <div class="col m3 s3">
+
+                  <div class="row">
+                    <img
+                      src="../../images/sms1.svg"
+                      class="m-b-lg"
+                      alt=""
+                      width="80%"
+                    />
+
+                    {{! <div class="switch">
+                        <label>
+                          <input type="checkbox" />
+                          <span class="lever"></span>
+                          Enable AD/LDAP
+                        </label>
+                      </div> }}
+
+                  </div>
+                </div>
+                <div class="col s4">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <label for="gateway">Gateway:</label>
+                      <input
+                        id="gateway"
+                        placeholder="Enter Gateway"
+                        name="ldap_user"
+                        value=""
+                        type="text"
+                        class="validate"
+                      />
+                    </div>
+                    <div class="input-field col s12">
+                      <label for="gatewayurl">Gateway Url:</label>
+                      <input
+                        id="gatewayurl"
+                        name="gatewayurl"
+                        type="text"
+                        class="validate"
+                        value=""
+                        placeholder="Enter Gateway Url"
+                      />
+                    </div>
+                    <div class="input-field col s12">
+                      <label for="balance">Balance:</label>
+                      <input
+                        value=""
+                        id="balance"
+                        name="balance"
+                        type="text"
+                        class="validate"
+                        placeholder="Enter Balance"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col s5">
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <label for="gatewaykeys">Gateway Keys:</label>
+                      <input
+                        id="gatewaykeys"
+                        value=""
+                        name="gatewaykeys"
+                        type="text"
+                        class="validate"
+                        placeholder="Enter Gateway Keys"
+                      />
+                    </div>
+                    <div class="input-field col s12">
+                      <label for="gatewaypassword">Gateway Password:</label>
+                      <input
+                        id="gatewaypassword"
+                        name="gatewaypassword"
+                        value=""
+                        type="text"
+                        class="validate"
+                        placeholder="gateway password"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="row"></div>
+                    <div class="switch">
+                      <label for="status">
+                        <input type="checkbox" id="status" />
+                        <span class="lever"></span>
+                        Status
+                      </label>
+                    </div>
+                    <input type="hidden" id="id" name="id" value="" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s5"></div>
+                <button
+                  class="waves-effect waves-light btn"
+                  type="button"
+                  name="add_smsgateway"
+                  id="add_smsgateway"
+                >Save Details</button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
