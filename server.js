@@ -6,7 +6,6 @@ const acl = require('./roles');
 const flash = require('connect-flash');
 const path = require('path');
 const session = require('express-session');
-const nodemailer = require('nodemailer');
 
 const gm = require('gm');
 
